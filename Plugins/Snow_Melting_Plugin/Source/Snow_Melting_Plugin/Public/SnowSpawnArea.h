@@ -21,8 +21,8 @@ public:
 
 #if WITH_EDITOR
 	virtual void PostEditChangeProperty(struct FPropertyChangedEvent& PropertyChangedEvent) override;
-#endif // WITH_EDITOR
-
+#endif
+	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -31,7 +31,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "")
 	UBoxComponent* BoxComponent;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Customize")
@@ -40,7 +40,7 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Customize")
 	uint32 Quantity = 0;
 
-	UPROPERTY()
+	UPROPERTY(Category = "")
 	TArray<ASnowMeltingObject*> MovableObjects;
 	
 private:

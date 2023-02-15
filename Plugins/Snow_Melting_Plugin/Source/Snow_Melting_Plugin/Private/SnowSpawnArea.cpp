@@ -14,6 +14,7 @@ ASnowSpawnArea::ASnowSpawnArea()
 	SetUpMovableObjects();
 }
 
+#if WITH_EDITOR
 void ASnowSpawnArea::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
 {
 	Super::PostEditChangeProperty(PropertyChangedEvent);
@@ -23,6 +24,7 @@ void ASnowSpawnArea::PostEditChangeProperty(FPropertyChangedEvent& PropertyChang
 		SetUpMovableObjects();
 	}
 }
+#endif
 
 // Called when the game starts or when spawned
 void ASnowSpawnArea::BeginPlay()
