@@ -2,7 +2,6 @@
 
 
 #include "SnowSpawnArea.h"
-
 #include "Kismet/KismetMathLibrary.h"
 
 
@@ -44,7 +43,6 @@ void ASnowSpawnArea::Tick(float DeltaTime)
 			MovableObject->SetActorHiddenInGame(true);
 			MovableObject->DisableComponentsSimulatePhysics();
 			MovableObject->SetActorEnableCollision(false);
-			//MovableObject->Destroy();
 		}
 	}
 }
@@ -66,15 +64,9 @@ void ASnowSpawnArea::SetUpMovableObjects()
 		MovableObject = Cast<ASnowMeltingObject>(GetWorld()->SpawnActor(SingleSnowMeltingObject.Get()));
 		SpawnPoint = FMath::RandPointInBox(BoxComponent->GetNavigationBounds());
 		MovableObject->SetActorLocation(SpawnPoint);
-		//MovableObject->SingleMovableObj->SetStaticMesh();
+		MovableObject->AttachToActor(this,FAttachmentTransformRules::KeepWorldTransform);
 	}
 }
 
-/*void ASnowSpawnArea::UpdateMeshes()
-{
-	for (auto &MovableObject : MovableObjects)
-	{
-		MovableObject->SingleMovableObj->SetStaticMesh();
-	}
-}*/
+
 

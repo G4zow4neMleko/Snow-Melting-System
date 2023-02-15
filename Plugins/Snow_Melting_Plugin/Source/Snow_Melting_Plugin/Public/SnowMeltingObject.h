@@ -25,4 +25,10 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 	UStaticMeshComponent* MeshComponent;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	float MaxSpeed = 0.0f;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	float MinSpeed = 0.0f;
 };

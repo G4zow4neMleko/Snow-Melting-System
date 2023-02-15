@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "SnowMeltingObject.h"
 #include "Components/BoxComponent.h"
-#include "Components/SphereComponent.h"
 #include "GameFramework/Actor.h"
 #include "SnowSpawnArea.generated.h"
 
@@ -39,12 +38,11 @@ public:
 	TSoftClassPtr<ASnowMeltingObject> SingleSnowMeltingObject;
 	
 	UPROPERTY(EditAnywhere, Category = "Customize")
-	uint32 Quantity = 10;
+	uint32 Quantity = 0;
 
-	UPROPERTY(EditAnywhere, Category = "Customize")
+	UPROPERTY()
 	TArray<ASnowMeltingObject*> MovableObjects;
 	
 private:
 	void SetUpMovableObjects();
-	/*void UpdateMeshes();*/
 };
